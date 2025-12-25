@@ -1,0 +1,89 @@
+/* #0074e9 #e7223d*/
+h1{text-align:center; margin:50px auto 30px;}
+h1 a img {width:200px;}
+main{width:500px;margin:0 auto;}
+#loginFrm{border-bottom:1px solid #ccc; margin-bottom:20px; padding-bottom:20px;}
+fieldset ul li{
+    border:1px solid #ccc; background:#fff;
+    display:flex; flex-flow:row nowrap;
+    margin-bottom:10px;
+    position:relative;
+}
+.error{
+    color :#e7223d; padding:10px; display:none;
+}
+.id_error{border:0;}
+.pw_error{border:0;}
+
+.id_bg{
+    border-right:1px solid #ccc;
+    padding:20px; width:20px;
+    background-color: #f5f5f5;
+    position:relative;
+}
+.id_bg::after{
+    content:''; display:block;
+    background-image:url(../images/icon.svg);
+    background-position: 0 0;
+    width:21px; height:21px;
+    position:absolute; left:18px; top:11px;
+}
+.pw_bg{
+    border-right:1px solid #ccc;
+    padding:20px; width:20px;
+    background-color: #f5f5f5;
+    position:relative;
+}
+main #loginFrm fieldset ul li .pw_bg::after{
+    content:''; display:block;
+    background-image:url(../images/icon.svg);
+    background-position: -21px 0;
+    width:21px; height:21px;
+    position:absolute; left:18px; top:11px;
+}
+li span input {width:400px; height:40px; border:0; padding-left:5px;}
+li span input::placeholder {font-size:0.95rem; color:#aaa;}
+.pw_show_hide{
+    background-image:url(../images/icon.svg);
+    background-position:-105px 0;
+    width:21px; height:21px;
+    position:absolute; right: 11px; top:8px;
+}
+.btm{
+    display:flex; flex-flow:row nowrap;
+    padding: 15px 0; justify-content:space-between;
+}
+
+.btm p label input[name=login_y] {appearance:none;}
+.btm p label input[name=login_y]+ span::before{
+    background:#fff;
+    border:1px solid #ccc;
+    content:''; display:inline-block;
+    width:17px; height:17px;
+    background-image: url(../images/icon.svg);
+    background-position:-65px -22px;
+    margin-right:5px;
+}
+.btm p label input[name=login_y]:checked + span::before {
+    background-position:-84px -21px;
+}
+
+.idpw_search {color:#00478f;}
+.idpw_search::after{
+    content:""; display:inline-block;
+    width:8px; height:15px;
+    background-image:url(../images/icon.svg);
+    background-position:-104px -21px;
+    margin-left:5px;
+}
+#login_btn {
+    background:#0074e9;
+    width:100%; color:#fff; padding:20px 0;
+    box-shadow:0 2px 0 #0161c1;
+}
+.join_link{
+    border:1px solid #ccc; color:#0074e9; 
+    display:block; text-align:center; background:#fff; padding:20px 0; width:100%;
+    box-shadow:0 2px 0 #eee;
+}
+footer {color:#333; text-align:center; font-size:0.85rem; margin-top:20px;}
