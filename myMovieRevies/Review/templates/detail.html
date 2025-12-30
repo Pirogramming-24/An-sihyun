@@ -14,7 +14,7 @@
             <h3>Add a New review</h3>
         </a>
     </div>
-    
+
     <a href="{% url 'Review:review_update' review.pk %}">수정</a>
 
     <form action="{% url 'Review:review_delete' review.pk %}" method="POST" style="display:inline;">
@@ -27,7 +27,7 @@
     <div class="info">
         <p>개봉년도: {{ review.release }}년</p>
         <p>감독: {{ review.director }}</p>
-        <p>주연: {{ review.acotr }}</p> <p>장르: {{ review.get_genre_display }}</p>
+        <p>주연: {{ review.actor }}</p> <p>장르: {{ review.get_genre_display }}</p>
         <p>별점: {{ review.star }}</p>
         <p>러닝타임: {{ review.runningtime }}분</p>
     </div>

@@ -46,6 +46,7 @@ def review_update(request, pk):
         return redirect('Review:detail', pk=pk)
     
     return render(request, 'review_form.html', {'review': review})
+    
 
 # 5. 리뷰 삭제 (Delete)
 def review_delete(request, pk):
