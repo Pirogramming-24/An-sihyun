@@ -13,7 +13,7 @@ class Review(models.Model):
         ('romance', '로맨스'),
         ('SF', 'SF'),
         ('comedy', '코미디'),
-        ('documentary', '다큐멘터리')
+        ('documentary', '다큐멘터리')
     ]
 
     genre = models.CharField(max_length=32, choices=GENRE_CHOICES, default='default')
