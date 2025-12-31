@@ -35,7 +35,7 @@
         <p>러닝타임: <input type="number" name="runningtime" value="{{ review.runningtime|default:'' }}"></p>
         
         <p>리뷰: <br>
-        <texntarea name="review_cotent" rows="5" cols="30">{{ review.review_content|default:'' }}</textarea></p>
+        <textarea name="review_content" rows="5" cols="30">{{ review.review_content|default:'' }}</textarea></p>
         
         <p>감독: <input type="text" name="director" value="{{ review.director|default:'' }}"></p>
         

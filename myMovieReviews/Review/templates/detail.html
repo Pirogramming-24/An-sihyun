@@ -30,7 +30,15 @@
         <p>주연: {{ review.actor }}</p>
         <p>장르: {{ review.get_genre_display }}</p>
         <p>별점: {{ review.star }}</p>
-        <p>러닝타임: {{ review.runningtime }}분</p>
+        {% if time %}
+            {% if time.time2 == 0 %}
+                <p>러닝타임: {{ time.time1 }}시간</p>
+            {% else %}
+                <p>러닝타임: {{ time.time1 }}시간 {{ time.time2 }}분</p>
+            {% endif %}
+        {% else %}
+            <p>러닝타임: {{ review.runningtime }}</p>
+        {% endif %}
     </div>
 
     <div class="content">

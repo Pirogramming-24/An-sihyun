@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Review
 
 def review_list(request):
-    all_reviews = Review.objects.all()
+    # order_by 정렬, - 있으면 내림차순
+    all_reviews = Review.objects.all().order_by("-star", "-release") 
+    # 별점 높은순 정렬, 별점이 같을 때 개봉년도 최신순 정렬
     return render(request, "review_list.html", {"reviews": all_reviews})
 
 def add_a_new_review(request):
@@ -28,7 +30,19 @@ def add_a_new_review(request):
 
 def detail(request, pk):
     review = get_object_or_404(Review, pk=pk)
-    return render(request, "detail.html", {"review": review})
+    
+    if review.runningtime >=60:
+        a = review.runningtime//60
+        b = review.runningtime%60
+        time={"time1":a, "time2":b}
+    else:
+        time=None
+
+    context = {"review":review,
+               "time":time}
+    
+    # context로 오는 딕셔너리는 한 개만 가능함.
+    return render(request, "detail.html", context)
 
 def review_update(request, pk):
     review = get_object_or_404(Review, pk=pk)
