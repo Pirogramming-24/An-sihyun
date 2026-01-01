@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review_list</title>
+</head>
+<body>
+    <div class="header">
+        <a href="{% url 'Review:review_list' %}">
+            <h3>my <strong>Movie</strong> reviews</h3>
+        </a>
+        <a href="{% url 'Review:new_review' %}">
+            <h3>Add a New review</h3>
+        </a>
+    </div>
+
+    {% for review in reviews %}
+    <div class="movie-card">
+        <a href="{% url 'Review:detail' review.pk %}">
+            <h3>{{ review.title }}</h3>
+        </a>
+        <p>개봉년도: {{ review.release }}년</p>
+        <p>장르: {{ review.get_genre_display }}</p> <p>별점: {{ review.star }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
