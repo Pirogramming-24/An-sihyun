@@ -1,0 +1,52 @@
+{% extends 'myswideamanage/header.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'myswideamanage/idea_list.css' %}">
+    <script src="{% static 'myswideamanage/js/idea_star.js' %}" defer></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="list_container">
+    <div class="info">
+        <h4>Idea List</h4>
+        <p>나의 아이디어를 잊지 말고 기록해보세요</p>
+    </div>
+    <div class="sort">
+        <select name="order_by" id="order_by" onchange="location.href='?sort=' + this.value;">
+            <option value="" {% if not sort %}selected{% endif %}>-- 정렬 기준 --</option>                
+            <option value="star" {% if sort == 'star' %}selected{% endif %}>찜하기순</option>
+            <option value="-pk" {% if sort == '-pk' %}selected{% endif %}>최신순</option>
+            <option value="-interest" {% if sort == '-interest' %}selected{% endif %}>관심도순</option>
+            <option value="title" {% if sort == 'title' %}selected{% endif %}>이름순</option>
+        </select>
+    </div>
+    
+    <div class="cards">
+        {% for idea in ideas %}
+        <div class="idea_content">
+            <span class="star-btn" onclick="toggleStar({{ idea.id }}, this)" 
+                    style="cursor:pointer; position:absolute; top:10px; right:10px; font-size: 28px;
+                    color: {% if idea.is_starred %}#f2f26aff{% else %}#ccc{% endif %};">
+                ★
+            </span> 
+            <img src="{{ idea.image.url }}" alt="">
+            <a href="{% url 'idea_detail' idea.pk %}">
+                <p> {{ idea.title }}</p>
+            </a>
+            <p>예상 개발 툴: {{ idea.devtool }}</p>
+            <div class="interest-container">
+                <p>아이디어 관심도: 
+                    <button onclick="updateInterest({{ idea.id }}, 'minus')">-</button>
+                    <span id="interest-count-{{ idea.id }}" style="font-weight: bold;">
+                        {{ idea.interest }}
+                    </span>
+                    <button onclick="updateInterest({{ idea.id }}, 'plus')">+</button>
+                </p>
+            </div>           
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

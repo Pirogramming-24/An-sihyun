@@ -1,0 +1,53 @@
+form {
+    position: relative; /* z-index를 쓰기 위해 필요 */
+    z-index: 10;        /* 배경화면보다 높은 숫자 */
+    background-color:rgba(251, 251, 251, 0.399);
+    color:white;
+    width:80%;
+    margin:50px auto;
+    padding:20px;
+    border-radius: 20px;
+}
+.info h4, .info p {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    font-size:1.2rem;
+}
+.info h4{
+    color:rgba(215, 250, 235, 0.92);
+}
+.form_content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form_obj{
+    width:50%;
+}
+form p {
+        margin-bottom: 15px;
+}
+label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+}
+input[type="text"], input[type="number"], textarea, select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #cccccc5b;
+}
+button {
+    margin:30px;
+    width:150px;
+    height:80px;
+    font-size: 1.2rem;
+    background-color:#cccccc5b;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color:white;
+} 

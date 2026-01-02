@@ -1,0 +1,48 @@
+{% extends 'myswideamanage/header.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'myswideamanage/dev_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail_container">
+    <div class="info">
+        <h4>DevTool Detail</h4>
+        <p>개발 툴 세부내용 페이지입니다. 자신이 다룰 수 있는 개발 툴에 대한 상세내용을 확인해보세요.</p>
+    </div>
+    <div class="dev_content">
+        <div class="dev_detail">
+            <h3> {{ tool.name }}</h3>
+            <div class="ctt">
+                <p>{{ tool.kind }}</p>
+                <p>{{ tool.content }}</p>
+            </div>
+            <div class="related_section">
+                <h4>>만들 수 있는 SW 목록</h4>
+                <ul>
+                    {% for idea in related_ideas %}
+                        <li>
+                            <a href="{% url 'idea_detail' idea.pk %}">{{ idea.title }}</a>
+                        </li>
+                    {% empty %}
+                        <li>아직 등록된 아이디어가 없습니다.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="btn">
+                <button type="button" class='btn1' onclick="location.href='{% url 'dev_update' tool.pk %}'">
+                    수정
+                </button>
+                <button type="button" class='btn2' onclick="location.href='{% url 'dev_list' %}'">
+                    목록
+                </button>
+                <form action="{% url 'dev_delete' tool.pk %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class='btn3' onclick="return confirm('정말 삭제하시겠습니까?');">삭제하기</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
