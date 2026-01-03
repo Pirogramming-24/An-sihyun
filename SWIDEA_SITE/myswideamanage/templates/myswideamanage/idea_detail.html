@@ -1,0 +1,46 @@
+{% extends 'myswideamanage/header.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'myswideamanage/idea_detail.css' %}">
+    <script src="{% static 'myswideamanage/js/idea_star.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="detail_container">
+    <div class="info">
+        <h4>Idea Detail</h4>
+        <p>아이디어 세부내용 페이지입니다. 구현하려 한 아이디어를 자세히 살펴보세요.</p>
+    </div>
+    <div class="idea_content">
+        <div class="idea_image">
+            <span class="star-btn" onclick="toggleStar({{ idea.id }}, this)" 
+                    style="cursor:pointer; color: {% if idea.is_starred %}#f2f26aff{% else %}#ccc{% endif %};">
+                ★
+            </span> 
+            <img src="{{ idea.image.url }}" alt="">
+        </div>
+        <div class="idea_detail">
+            <h3> {{ idea.title }}</h3>
+            <p>1) 아이디어 관심도</p>
+                {{ idea.interest }}
+            <p>2) 예상 개발 툴</p>
+            <a href="{% url 'dev_list' %}">{{ idea.devtool }}</a>  
+            <p>3) 아이디어 설명</p>
+                {{ idea.content}}
+            <div class="btn">
+                <button type="button" class='btn1' onclick="location.href='{% url 'idea_update' idea.pk %}'">
+                    수정
+                </button>
+                <button type="button" class='btn2' onclick="location.href='{% url 'idea_list' %}'">
+                    목록
+                </button>
+                <form action="{% url 'idea_delete' idea.pk %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class='btn3' onclick="return confirm('정말 삭제하시겠습니까?');">삭제하기</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

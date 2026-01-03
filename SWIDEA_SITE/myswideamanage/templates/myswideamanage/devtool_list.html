@@ -1,0 +1,26 @@
+{% extends 'myswideamanage/header.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'myswideamanage/dev_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="list_container">
+    <div class="info">
+        <h4>DevTool List</h4>
+        <p>개발툴 등록 페이지입니다. 자신이 다룰 수 있는 개발툴을 등록해보세요.</p>
+    </div>
+    {% for tool in tools %}
+    <div class="cards">
+        <div class="dev_content">
+            <a href="{% url 'dev_detail' tool.pk %}">
+                <p> {{ tool.name }}</p>
+            </a>
+            <p>{{ tool.kind }}</p>        
+            <p>{{ tool.content }}</p>        
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

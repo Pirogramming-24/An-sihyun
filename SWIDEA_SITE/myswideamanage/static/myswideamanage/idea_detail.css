@@ -1,0 +1,75 @@
+.detail_container {
+    position: relative; /* z-index를 쓰기 위해 필요 */
+    z-index: 10;        /* 배경화면보다 높은 숫자 */
+    background-color:rgba(251, 251, 251, 0.399);
+    color:white;
+    width:80%;
+    margin:50px auto;
+    padding:20px;
+    border-radius: 20px;
+}
+.info h4, .info p {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    font-size:1.2rem;
+}
+.info h4{
+    color:rgba(215, 250, 235, 0.92);
+}
+.idea_content{
+    background-color: rgba(215, 250, 235, 0.42);
+    padding:10px;
+    display:flex;
+    align-items: center;
+    position:relative;
+    gap:20px;
+    margin:10px;
+}
+.idea_image {
+    width:30%;
+    position: relative;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+.star-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+    z-index: 10;
+}
+.btn {
+    display:flex;
+    align-items: center;
+    padding:20px;
+    width:300px;
+    height:100px;
+    gap:30px;
+}
+.btn1 {
+    background-color: rgba(0, 110, 255, 0.299);
+    width: 70px;
+    height:50px;
+    border:none;
+    color:white;
+}
+
+.btn2 {
+    background-color: rgba(4, 4, 0, 0.451);
+    width: 70px;
+    height:50px;
+    border:none;
+    color:white;
+}
+.btn3 {
+    background-color: rgba(254, 30, 5, 0.673);
+    width: 70px;
+    height:50px;
+    border:none;
+    color:white;
+}

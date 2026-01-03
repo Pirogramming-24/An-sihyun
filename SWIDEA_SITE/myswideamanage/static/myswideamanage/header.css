@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+/* body {
+    margin:0;
+    padding:0;
+    background-color: aqua;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url('/static/myswideamanage/background.png');
+    
+    background-size: cover;      /* 화면에 꽉 차게 조절 */
+    background-position: center;  /* 이미지를 가운데 정렬 */
+    background-attachment: fixed; /* 스크롤해도 배경은 고정됨 */
+    background-repeat: no-repeat;
+    
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+header {
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    border-bottom: 1px white solid;
+}
+strong, a h3:hover {
+    color:greenyellow
+}
+a, h3 {
+    color:white;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+nav {
+    display:flex;
+    gap:250px;
+}
